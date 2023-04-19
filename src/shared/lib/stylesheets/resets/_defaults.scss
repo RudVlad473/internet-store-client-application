@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+html {
+  font-family: $mainFontFamily, "Calibri";
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $blue-400;
+  background-color: $gray-100;
+  font-weight: $normal;
+}
