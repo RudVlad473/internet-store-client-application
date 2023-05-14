@@ -1,0 +1,28 @@
+.item-card {
+  grid-area: 
+  "gallery    gallery" 
+  "gallery    gallery" 
+  "title      title" 
+  "price      discount"
+  "created-at created-at";
+}
+
+.gallery {
+  grid-area: gallery;
+}
+
+.title {
+  grid-area: title;
+}
+
+.price {
+  grid-area: price;
+}
+
+.discount {
+  grid-area: discount;
+}
+
+.created-at {
+  grid-area: created-at;
+}

@@ -7,12 +7,5 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl,
   }),
-  endpoints: (builder) => ({
-    getTodos: builder.query({
-      query: () => ({
-        url: "",
-        
-      }),
-    }),
-  }),
+  endpoints: () => ({}),
 })

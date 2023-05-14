@@ -1,0 +1,22 @@
+.home-layout {
+  display: grid;
+  grid-template-areas:
+    "search-bar   search-bar   details"
+    "children     children     children";
+
+  align-items: center;
+}
+
+.search-bar {
+  grid-area: search-bar;
+}
+
+.details {
+  grid-area: details;
+
+  justify-self: end;
+}
+
+.children {
+  grid-area: children;
+}

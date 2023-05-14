@@ -1,0 +1,7 @@
+@use "../../../../shared/lib/stylesheets/abstracts/" as *;
+
+.no-items {
+  text-align: center;
+  padding: 2.5em;
+  font-size: $bolder;
+}

@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+}
+
+.auth-modal {
+  position: absolute;
+  top: -50%;
+  right: 5%;
+
+  background-color: white;
+  
+  padding: 1em;
+  
+  border-radius: 1em;
+
+  transition: inset 0.8s ease-in-out;
+
+  &--active {
+    top: 10%;
+  }
+}

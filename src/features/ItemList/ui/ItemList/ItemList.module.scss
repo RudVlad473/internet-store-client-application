@@ -1,0 +1,6 @@
+$card-width: 250px;
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, $card-width));
+}

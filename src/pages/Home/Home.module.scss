@@ -1,0 +1,12 @@
+.content {
+  display: grid;
+  grid-template-areas: "sider main main";
+}
+
+.sider {
+  grid-area: sider;
+}
+
+.main {
+  grid-area: main;
+}
