@@ -1,7 +1,6 @@
-import { ItemCard } from "@entities/Item/ui"
-import { useGetItemsQuery } from "@shared/api"
 import { FC } from "react"
 
+import { useGetItemsQuery } from "../../../../entities/Item/api"
 import { NoItems } from "../NoItems"
 import styles from "./ItemList.module.scss"
 

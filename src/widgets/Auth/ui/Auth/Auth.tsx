@@ -1,56 +1,47 @@
-import { Button, Checkbox, Form, Input } from "antd"
-import { FC } from "react"
-import { toast } from "react-toastify"
+import { Button } from "antd"
+import { FC, useState } from "react"
 
-import { AuthErrorMessages } from "../../lib/error-messages"
+import { CredentialsCard } from "../../../../entities/User/ui/CredentialsCard"
+import { SigninForm } from "../../../../features/SigninForm/ui"
+import { SignupForm } from "../../../../features/SignupForm/ui"
+import { useAppDispatch, useAppSelector } from "../../../../shared/lib/hooks"
+import { AuthPaths } from "../../../../shared/lib/paths"
+import { FormType } from "../../lib/types"
+import { dropCredentials, selectCredentials } from "../../model"
 import styles from "./Auth.module.scss"
 
 export const Auth: FC = () => {
+  const dispatch = useAppDispatch()
+
+  const [formType, setFormType] = useState<FormType>(AuthPaths.SIGN_UP)
+
+  const credentials = useAppSelector(selectCredentials)
+
+  const isSignin = formType === AuthPaths.SIGN_IN
+
+  function handleFormSwitch() {
+    setFormType(isSignin ? AuthPaths.SIGN_UP : AuthPaths.SIGN_IN)
+  }
+
   return (
-    <div className={styles["auth"]}>
-      <Form
-        form={form}
-        name="registration-form"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={(err) => {
-          err.errorFields.forEach((error) => toast(error.name))
-        }}
-        autoComplete="on">
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: AuthErrorMessages.WRONG_USERNAME }]}>
-          <Input placeholder="JohnDoe" />
-        </Form.Item>
-
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[{ required: true, type: "email", message: AuthErrorMessages.WRONG_EMAIL }]}>
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: AuthErrorMessages.WRONG_PASSWORD }]}>
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
+    <>
+      {credentials ? (
+        <div className={styles["signed-in"]}>
+          <CredentialsCard {...credentials} />
+          <Button type="primary" onClick={() => dispatch(dropCredentials())}>
+            Logout
           </Button>
-        </Form.Item>
-      </Form>
-    </div>
+        </div>
+      ) : (
+        <div className={styles["auth-modal"]}>
+          <div className={styles["switch-btn"]}>
+            <Button type="link" onClick={handleFormSwitch}>
+              {isSignin ? "Sign up" : "Sign in"}
+            </Button>
+          </div>
+          {isSignin ? <SigninForm /> : <SignupForm />}
+        </div>
+      )}
+    </>
   )
 }

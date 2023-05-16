@@ -1,7 +1,7 @@
-import { router } from "@app/lib"
 import { RouterProvider } from "react-router-dom"
 
 import "./index.scss"
+import { router } from "./lib"
 import { withProviders } from "./providers"
 
 function App() {

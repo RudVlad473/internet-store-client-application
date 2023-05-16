@@ -3,17 +3,28 @@ import { Avatar } from "antd"
 import classNames from "classnames"
 import React, { FC } from "react"
 
-import { useBooleanState } from "../../../../shared/lib/hooks"
+import { useAppSelector, useBooleanState } from "../../../../shared/lib/hooks"
 import { Portal } from "../../../../shared/ui/Portal"
+import { selectCredentials } from "../../../../widgets/Auth/model"
 import { Auth } from "../../../../widgets/Auth/ui/Auth"
+import { Roles } from "../../lib/types"
 import styles from "./User.module.scss"
 
 export const User: FC = () => {
   const { state: showAuthModal, toggleState: toggleShowAuthModal } = useBooleanState(false)
+  const credentials = useAppSelector(selectCredentials)
 
   return (
     <div className={styles.wrapper}>
-      <div onClick={() => toggleShowAuthModal()}>
+      <div
+        className={classNames(
+          styles.avatar,
+          { [styles["avatar--active"]]: !!credentials },
+          {
+            [styles["avatar--admin"]]: credentials?.role === Roles.ADMIN,
+          }
+        )}
+        onClick={() => toggleShowAuthModal()}>
         <Avatar size={64} icon={<UserOutlined />} />
       </div>
 

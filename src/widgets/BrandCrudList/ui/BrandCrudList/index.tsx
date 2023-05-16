@@ -1,0 +1,1 @@
+export { BrandCrudList } from "./BrandCrudList"

@@ -1,0 +1,33 @@
+@use "../../shared/lib/stylesheets/abstracts/" as *;
+
+.page,
+.crud-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.page {
+  
+}
+
+.crud-section {
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.search-bar {
+  max-width: 50%;
+  margin-left: auto;
+}
+
+.heading {
+  text-align: center;
+
+  font-size: 1.75rem;
+  font-weight: $bold;
+}

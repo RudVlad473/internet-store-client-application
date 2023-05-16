@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "baseUrl": "./src",
+    "paths": {
+      "@widgets/*": ["widgets/*"],
+      "@shared/*": ["shared/*"],
+      "@entities/*": ["entities/*"],
+      "@features/*": ["features/*"],
+      "@app/*": ["app/*"],
+      "@pages/*": ["pages/*"]
+    },
+    "target": "ES2017",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
@@ -9,7 +18,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,

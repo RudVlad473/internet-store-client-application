@@ -1,0 +1,1 @@
+export { NoCrudList } from "./NoCrudList"
