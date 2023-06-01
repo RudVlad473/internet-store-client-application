@@ -16,7 +16,7 @@ export const Menu: FC = () => {
   return (
     <div>
       <Dropdown menu={{ items: menuItems }} placement="bottomLeft" arrow>
-        <Button icon={<MenuOutlined />} />
+        <Button icon={<MenuOutlined />} size="large" />
       </Dropdown>
     </div>
   )
