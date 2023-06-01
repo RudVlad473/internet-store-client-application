@@ -3,12 +3,12 @@ import { FC } from "react"
 
 import { SignupUser } from "../../../../entities/User/lib/types"
 import { AuthErrorMessages } from "../../../../widgets/Auth/lib/error-messages"
-import { useSignupForm } from "../../lib/hooks"
+import { useSignup } from "../../lib/hooks"
 
 export const SignupForm: FC = () => {
   const [form] = Form.useForm()
 
-  const { setSignupData, isError, isLoading, isSuccess, error } = useSignupForm()
+  const { setSignupData, isError, isLoading, isSuccess, error } = useSignup()
 
   function onFinish(values: SignupUser) {
     setSignupData(values)
@@ -22,7 +22,6 @@ export const SignupForm: FC = () => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={(err) => {}}
         autoComplete="on">
