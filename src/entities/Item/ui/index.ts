@@ -1,1 +1,5 @@
-export * from "./ItemCard"
+export { ItemCard } from "./ItemCard"
+export { Comments } from "./Comments"
+export { CreatedAt } from "./CreatedAt"
+export { ItemPrice } from "./ItemPrice"
+export { ItemRating } from "./ItemRating"
