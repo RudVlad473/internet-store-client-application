@@ -1,1 +1,1 @@
-export * from "./type-breakpoints"
+export * from "./type-endpoints"
