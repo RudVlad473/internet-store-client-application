@@ -1,0 +1,1 @@
+export { CategoryCrudList } from "./CategoryCrudList"
