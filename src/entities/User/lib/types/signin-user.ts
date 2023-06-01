@@ -1,5 +1,5 @@
-import { AuthUser } from "./auth-user"
+import { TUser } from "./user"
 
-export type SigninUser = Pick<AuthUser, "email"> & {
+export type SigninUser = Pick<TUser, "email"> & {
   password: string
 }

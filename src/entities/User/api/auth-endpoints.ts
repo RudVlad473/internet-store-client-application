@@ -5,8 +5,8 @@ import { AuthPaths } from "../../../shared/lib/paths"
 import { AccessToken, SigninUser, SignupUser } from "../lib/types"
 
 export const authExtendedApi = apiSlice.injectEndpoints({
-  endpoints: ({ query, mutation }) => ({
-    signin: query<AccessToken, SigninUser>({
+  endpoints: ({ mutation }) => ({
+    signin: mutation<AccessToken, SigninUser>({
       query: (credentials) => ({
         url: `${AuthPaths.AUTH}/${AuthPaths.SIGN_IN}`,
         method: HTTPMethod.POST,
@@ -23,4 +23,4 @@ export const authExtendedApi = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useSigninQuery, useSignupMutation } = authExtendedApi
+export const { useSigninMutation, useSignupMutation } = authExtendedApi
